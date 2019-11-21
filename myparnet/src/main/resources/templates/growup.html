@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的伙伴</title>
+		<script th:src="@{webjars/jquery/3.4.1/jquery.min.js}"></script>
+		<script th:src="@{webjars/jquery/3.4.1/jquery.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.bundle.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+		<link rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.css}" />
+		<style>
+
+		</style>
+		<script>
+			function check() {
+				var comment = $("#comment").val();
+				if (comment == ''){
+					alert("评论失败");
+					return false;
+				}
+				return true;
+			}
+
+		</script>
+	</head>
+	<body>
+		<div th:replace="~{/comment/bar :: copy(activeUri='growup')}"></div>
+		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+			<h1 class="display-4">我的成长轨迹</h1>
+			<p class="lead ">在生活中，我一直是一个乐观向上，勤奋努力，积极进取的人，我喜欢帮助别人，
+				具有较强的自学能力，对编程也有很高的热<br/>情。在小学的时候我很喜欢和朋友在树林里
+				玩耍，摘果子吃；到了初中就迷上了电子游戏，经常和朋友出去玩；到了高中爱玩<br/>的心
+				就收敛了很多，就开始认真读书；到了大学就喜欢编程。</p>
+			<p class="lead ">联系方式: 13532830478</p>
+		</div>
+
+		<div class="container">
+			<div class="card-deck mb-3 text-center">
+				<div class="card mb-4 shadow-sm">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">评论</h4>
+					</div>
+					<div class="card-body">
+						<form method="post" th:action="@{/thyAdd}" onsubmit="return check()">
+							<div class="form-group">
+								<label for="comment">你对我的成长轨迹的评论</label>
+								<textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+							</div>
+							<button type="submit" class="btn btn-lg btn-block btn-primary">提交评论</button>
+						</form>
+					</div>
+				</div>
+
+				<div class="card mb-4 shadow-sm">
+					<div class="card-header">
+						<h4 class="my-0 font-weight-normal">评论列表</h4>
+					</div>
+					<div class="card-body">
+						<div class="row mb-3" th:each="comment:${comments}">
+							<div class="col-4" th:text="${comment.user.username}"></div>
+							<div class="col-7" th:text="${comment.comment}"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

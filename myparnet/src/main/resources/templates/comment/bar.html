@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="copy">
+        <a class="navbar-brand" href="#">我的伙伴</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a th:class="${activeUri=='tourist'?'nav-link active':'nav-link'}" th:href="@{/tourist_index}" >
+                        主页 </a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${activeUri=='growup'?'nav-link active':'nav-link'}" th:href="@{/thyComment}">
+                        成长轨迹</a>
+                </li>
+                <!--<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" th:href="@{/recommend}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        我的推荐
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/music}">我的音乐</a>
+                        <a class="dropdown-item" th:href="@{/video}">我的动漫</a>
+                    </div>
+                </li>-->
+                <li class="nav-item">
+                    <a th:class="${activeUri=='recommend'?'nav-link active':'nav-link'}" th:href="@{/recommend}" tabindex="-1" aria-disabled="true">我的推荐</a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${activeUri=='impression'?'nav-link active':'nav-link'}" th:href="@{/impression}" tabindex="-1" aria-disabled="true">印象时刻</a>
+                </li>
+            </ul>
+            <div class="dropdown" style="margin-right: 5%">
+                <a class="nav-link dropdown-toggle" th:href="@{#}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    [[${session.user.username}]]
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{/thyOutLogin}">退出</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</body>
+</html>

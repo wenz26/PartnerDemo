@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="myparnet:war">
+    <output-path>$PROJECT_DIR$/myparnet/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>myparnet</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="myparnet-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="myparnet:war exploded" />
+    </root>
+  </artifact>
+</component>

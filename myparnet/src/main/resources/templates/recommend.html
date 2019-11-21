@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的伙伴</title>
+		<script th:src="@{webjars/jquery/3.4.1/jquery.min.js}"></script>
+		<script th:src="@{webjars/jquery/3.4.1/jquery.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.bundle.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+		<link rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.css}" />
+		<style>
+
+		</style>
+		<script>
+			function play(){
+				var audio = document.getElementById("audio");
+				if(audio.paused) {
+					audio.play();
+				} else {
+					audio.pause();
+				}
+			}
+
+		</script>
+	</head>
+	<body>
+		<div th:replace="~{/comment/bar :: copy(activeUri='recommend')}"></div>
+		<div class="container">
+			<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+				<div class="col-md-6 px-0">
+					<h1 class="display-4 font-italic">我的推荐</h1>
+					<p class="lead my-3">这里包括我喜欢的音乐和动漫视频</p>
+					<p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+				</div>
+			</div>
+
+			<div class="row mb-2">
+				<div class="col-md-6">
+					<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+						<div class="col p-4 d-flex flex-column position-static">
+							<strong class="d-inline-block mb-2 text-primary">我喜欢的音乐🎵</strong>
+							<h3 class="mb-0">后来的我们</h3>
+							<div class="mb-1 text-muted">演唱者：五月天</div>
+							<br>
+							<a href="#" onclick="play()" class="stretched-link">播放/暂停
+								<audio th:src="@{music/after.mp3}" id="audio"></audio></a>
+						</div>
+						<div class="col-auto d-lg-block">
+							<img class="bd-placeholder-img" width="200" height="250" th:src="@{image/after.jpg}" >
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+						<div class="col p-4 d-flex flex-column position-static">
+							<strong class="d-inline-block mb-2 text-success">我喜欢的动漫</strong>
+							<h3 class="mb-0">天气之子</h3>
+							<div class="mb-1 text-muted">导演：新海诚</div>
+						</div>
+						<div class="col-auto d-lg-block">
+							<video th:src="@{movie/son_of_the_weather.mp4}" controls="controls"
+								   width="300" height="250"></video>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

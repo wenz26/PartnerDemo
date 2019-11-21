@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的伙伴</title>
+		<script th:src="@{webjars/jquery/3.4.1/jquery.min.js}"></script>
+		<script th:src="@{webjars/jquery/3.4.1/jquery.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.bundle.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.js}"></script>
+		<script th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+		<link rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.css}" />
+
+		<style>
+			.themed-grid-col {
+				padding-top: 15px;
+				padding-bottom: 15px;
+				background-color: rgba(86, 61, 124, .15);
+				border: 1px solid rgba(86, 61, 124, .2);
+			}
+		</style>
+		<script>
+
+		</script>
+	</head>
+	<body>
+		<div th:replace="~{/comment/bar :: copy(activeUri='impression')}"></div>
+		<div class="container">
+			<h2 class="mt-4">最有印象的时刻</h2>
+			<p>人生的各个阶段最具有印象的时刻</p>
+			<div class="row mb-3">
+				<div class="col-4 themed-grid-col">上学前</div>
+				<div class="col-7 themed-grid-col" th:text="${session.user.beforeschool}"></div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-4 themed-grid-col">幼儿园</div>
+				<div class="col-7 themed-grid-col" th:text="${session.user.kindergarten}"></div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-4 themed-grid-col">小学</div>
+				<div class="col-7 themed-grid-col" th:text="${session.user.primaryschool}"></div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-4 themed-grid-col">初中</div>
+				<div class="col-7 themed-grid-col" th:text="${session.user.middleschool}"></div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-4 themed-grid-col">高中</div>
+				<div class="col-7 themed-grid-col" th:text="${session.user.highschool}"></div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-4 themed-grid-col">大学</div>
+				<div class="col-7 themed-grid-col" th:text="${session.user.university}"></div>
+			</div>
+
+			<hr class="mb-4">
+			<form class="needs-validation" th:action="@{/thyAddimp}" method="post" novalidate>
+				<h4 class="mb-3">关于你的印象时刻（选填）：</h4>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="beforeschool">上学前</label>
+						<input type="text" class="form-control" id="beforeschool" placeholder="Beforeschool" name="beforeschool">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="kindergarten">幼儿园</label>
+						<input type="text" class="form-control" id="kindergarten" placeholder="Kindergarten" name="kindergarten">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="primaryschool">小学</label>
+						<input type="text" class="form-control" id="primaryschool" placeholder="Primaryschool" name="primaryschool">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="middleschool">初中</label>
+						<input type="text" class="form-control" id="middleschool" placeholder="Middleschool" name="middleschool">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="highschool">高中</label>
+						<input type="text" class="form-control" id="highschool" placeholder="Highschool" name="highschool">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="university">大学</label>
+						<input type="text" class="form-control" id="university" placeholder="University" name="university">
+					</div>
+				</div>
+				<hr class="mb-4">
+				<button class="btn btn-primary btn-lg" type="submit">提交</button>
+			</form>
+		</div>
+
+	</body>
+</html>
