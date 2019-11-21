@@ -1,0 +1,5 @@
+# PartnerDemo
+这是一个基于SpringBoot+MyBatis的简单小Demo，采用的是thymeleaf模板引擎，前端采用的是Bootstrap。
+- 该Demo的后台有两套，第一套是适应thymeleaf的，controller层还存在部分Model依赖，不能完全算是前后端分离。
+- 第二套是适应手机APP而开发的后台，实现了完全的前后端分离。后台返回的都是Json数据，前端只需根据自己的业务逻辑通过ajax
+请求访问后端服务器即可拿到相应的数据并进行逻辑处理。
